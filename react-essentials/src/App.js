@@ -1,29 +1,32 @@
 import "./App.css";
 
 // Header component
-function Header() {
+function Header(props) {
+  console.log(props);
   return (
     <header>
-      <h1>Welcome to Emm's Garage</h1>
+      <h1>Welcome to {props.name}'s Garage</h1>
     </header>
   );
 }
 
 // Main component
-function Main() {
+function Main(props) {
+  console.log(props);
   return (
     <section>
-      <p>We sell the most exotic cars at the best prices</p>
+      <p>We sell {props.adjective} cars at cool prices</p>
     </section>
   );
 }
 
 // Footer component
 
-function Footer() {
+function Footer(props) {
   return (
     <footer>
       <p>Give us a call at +1-800-800-800</p>
+      <p>Copyright {props.year}</p>
     </footer>
   );
 }
@@ -32,9 +35,9 @@ function Footer() {
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Footer />
+      <Header name="Emm" />
+      <Main adjective="vintage" />
+      <Footer year={new Date().getFullYear()} />
     </div>
   );
 }
