@@ -62,13 +62,15 @@ function Footer(props) {
 }
 
 // Root component that contains all the declared components
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <Header name="Emm" />
-      <Main name="cars" adjective="exotic" cars={carObjects} />
-      <Footer year={new Date().getFullYear()} />
-    </div>
+    <>
+      {props.authorized ? (
+        <Main name="cars" adjective="exotic" cars={carObjects} />
+      ) : (
+        <Footer year={new Date().getFullYear()} />
+      )}
+    </>
   );
 }
 
