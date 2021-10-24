@@ -1,4 +1,5 @@
 import "./App.css";
+import Car from "./car.jpg";
 
 // Array of Car models
 const cars = [
@@ -31,6 +32,12 @@ function Main(props) {
   console.log(props);
   return (
     <section>
+      <img
+        className="photo"
+        src={Car}
+        alt="a porsche car on the highway"
+        height="250px"
+      />
       <p>
         We sell {props.adjective} {props.name} at the coolest prices
       </p>
