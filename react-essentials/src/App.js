@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
+// Header component
+function Header() {
+  return (
+    <header>
+      <h1>Welcome to Emm's Garage</h1>
+    </header>
+  );
+}
+
+// Main component
+function Main() {
+  return (
+    <section>
+      <p>We sell the most exotic cars at the best prices</p>
+    </section>
+  );
+}
+
+// Footer component
+
+function Footer() {
+  return (
+    <footer>
+      <p>Give us a call at +1-800-800-800</p>
+    </footer>
+  );
+}
+
+// Root component that contains all the declared components
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }
