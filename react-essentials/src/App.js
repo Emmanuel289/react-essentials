@@ -1,5 +1,9 @@
 import "./App.css";
 
+// Array of Car models
+const cars = ["Ford", "Ferrari", "Mercedez", "Toyota", "Tesla", "Honda"];
+
+cars.map((car) => console.log(car.toUpperCase()));
 // Header component
 function Header(props) {
   console.log(props);
@@ -15,7 +19,14 @@ function Main(props) {
   console.log(props);
   return (
     <section>
-      <p>We sell {props.adjective} cars at cool prices</p>
+      <p>
+        We sell {props.adjective} {props.name} at the coolest prices
+      </p>
+      <ul style={{ textAlign: "left" }}>
+        {props.cars.map((car) => (
+          <li>{car.toUpperCase()}</li>
+        ))}
+      </ul>
     </section>
   );
 }
@@ -36,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <Header name="Emm" />
-      <Main adjective="vintage" />
+      <Main name="cars" adjective="exotic" cars={cars} />
       <Footer year={new Date().getFullYear()} />
     </div>
   );
