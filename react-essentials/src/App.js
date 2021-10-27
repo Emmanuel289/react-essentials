@@ -1,12 +1,12 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Home, Events, Contact, About } from "./pages.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Home, Events, Contact, About } from "./pages";
 import "./App.css";
 // import Car from "./car.jpg";
 // import { Checkbox } from "./Checkbox";
 // import { useState, useEffect } from "react"
 
-const url = `https://api.github.com/users/`;
+// const url = `https://api.github.com/users/`;
 
 // function App({ login }) {
 //   const [data, setData] = useState(null);
@@ -56,14 +56,43 @@ const url = `https://api.github.com/users/`;
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/events">Events</Link>
+            </li>
+            <li>
+              <Link to="/contacts">Contacts</Link>
+            </li>
+          </ul>
+        </nav>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/events">
+            <Events />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
+
 export default App;
